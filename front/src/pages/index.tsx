@@ -1,38 +1,18 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useRandomBackground } from "@/hooks/useRandomBackground";
 import { CustomCard } from "@/components/custom/CustomCard";
-import {
-  Avatar,
-  Badge,
-  Button,
-  Divider,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Input,
-  Skeleton,
-  Tab,
-  Tabs,
-  Textarea,
-  Tooltip,
-} from "@heroui/react";
+import { Button, Divider, Tab, Tabs, Tooltip } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import SearchComponent from "@/components/SearchInput";
 import PortalChartExample from "@/components/PortalChartExample";
 import { Link, useSearchParams } from "react-router-dom";
-import { PromptSuggestions } from "@/components/PromptSuggestions";
 import DataCardExample from "@/components/DataCardExample";
 import { Footer } from "@/components/Footer";
 import NavigationHeader from "@/components/NavigationHeader";
-import { useTheme } from "@heroui/use-theme";
 import RecommendedFavorites from "@/components/RecommendedFavorites";
 import DataDrawer from "@/components/DataDrawer";
-import { setTimeout } from "timers/promises";
 
 export default function IndexPage() {
-  const { theme } = useTheme();
   const [query, setQuery] = useState("");
   const [isSent, setIsSent] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -84,7 +64,6 @@ export default function IndexPage() {
   const firstDataset = searchResults.find((item) => item.type === "DataSet");
   const datasetDescription =
     firstDataset?.description || "Aucune description disponible.";
-  const datasetLink = firstDataset ? `/datasets/${firstDataset.id}` : "#";
   const reportLink = firstDataset?.relatedProduct?.link || null;
 
   return (

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { CustomCard } from "./CustomCard";
 import { Icon } from "@iconify/react";
-import { Skeleton, Progress } from "@heroui/react";
-import { motion } from "framer-motion";
+import { Progress } from "@heroui/react";
 
 interface CustomChartStateProps {
   title?: string;
@@ -137,158 +135,158 @@ const InitializingState = () => {
   );
 };
 
-const AIBuildingEffect = () => {
-  const [dataPoints, setDataPoints] = useState<number[]>([]);
-  const maxPoints = 10;
+// const AIBuildingEffect = () => {
+//   const [dataPoints, setDataPoints] = useState<number[]>([]);
+//   const maxPoints = 10;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDataPoints((prev) => {
-        if (prev.length >= maxPoints) return prev;
-        return [...prev, Math.random() * 100];
-      });
-    }, 500);
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setDataPoints((prev) => {
+//         if (prev.length >= maxPoints) return prev;
+//         return [...prev, Math.random() * 100];
+//       });
+//     }, 500);
 
-    return () => clearInterval(interval);
-  }, []);
+//     return () => clearInterval(interval);
+//   }, []);
 
-  const chartHeight = 400;
-  const chartWidth = 400;
+//   const chartHeight = 400;
+//   const chartWidth = 400;
 
-  return (
-    <div className="relative w-full">
-      <div className="relative h-[400px] p-4 overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-8 grid-rows-6 gap-4 p-4">
-          {Array.from({ length: 48 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="bg-default-200/30"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              transition={{
-                duration: 0.2,
-                delay: i * 0.02,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            />
-          ))}
-        </div>
+//   return (
+//     <div className="relative w-full">
+//       <div className="relative h-[400px] p-4 overflow-hidden">
+//         <div className="absolute inset-0 grid grid-cols-8 grid-rows-6 gap-4 p-4">
+//           {Array.from({ length: 48 }).map((_, i) => (
+//             <motion.div
+//               key={i}
+//               className="bg-default-200/30"
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 0.5 }}
+//               transition={{
+//                 duration: 0.2,
+//                 delay: i * 0.02,
+//                 repeat: Infinity,
+//                 repeatType: "reverse",
+//               }}
+//             />
+//           ))}
+//         </div>
 
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-primary-500/10 to-transparent"
-          initial={{ y: -300 }}
-          animate={{ y: 300 }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
+//         <motion.div
+//           className="absolute inset-0 bg-gradient-to-b from-primary-500/10 to-transparent"
+//           initial={{ y: -300 }}
+//           animate={{ y: 300 }}
+//           transition={{
+//             duration: 2,
+//             repeat: Infinity,
+//             ease: "linear",
+//           }}
+//         />
 
-        <div className="relative h-full">
-          <motion.div
-            className="absolute left-0 h-full w-px bg-white"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 0.5 }}
-          />
+//         <div className="relative h-full">
+//           <motion.div
+//             className="absolute left-0 h-full w-px bg-white"
+//             initial={{ scaleY: 0 }}
+//             animate={{ scaleY: 1 }}
+//             transition={{ duration: 0.5 }}
+//           />
 
-          <motion.div
-            className="absolute bottom-0 w-full h-px bg-white"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          />
+//           <motion.div
+//             className="absolute bottom-0 w-full h-px bg-white"
+//             initial={{ scaleX: 0 }}
+//             animate={{ scaleX: 1 }}
+//             transition={{ duration: 0.5, delay: 0.5 }}
+//           />
 
-          <svg
-            className="absolute inset-0"
-            viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-          >
-            <motion.path
-              d={`M ${dataPoints
-                .map(
-                  (point, i) =>
-                    `${(i * chartWidth) / maxPoints},${chartHeight - (point * chartHeight) / 100}`
-                )
-                .join(" L ")}`}
-              fill="none"
-              stroke="var(--primary-500)"
-              strokeWidth="2"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 0.5 }}
-            />
-          </svg>
+//           <svg
+//             className="absolute inset-0"
+//             viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+//           >
+//             <motion.path
+//               d={`M ${dataPoints
+//                 .map(
+//                   (point, i) =>
+//                     `${(i * chartWidth) / maxPoints},${chartHeight - (point * chartHeight) / 100}`
+//                 )
+//                 .join(" L ")}`}
+//               fill="none"
+//               stroke="var(--primary-500)"
+//               strokeWidth="2"
+//               initial={{ pathLength: 0 }}
+//               animate={{ pathLength: 1 }}
+//               transition={{ duration: 0.5 }}
+//             />
+//           </svg>
 
-          <div className="absolute top-4 right-4 flex items-center gap-2">
-            <motion.div
-              className="w-2 h-2 rounded-full bg-primary-500"
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [1, 0.5, 1],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <span className="text-xs text-default-500">AI Processing</span>
-          </div>
+//           <div className="absolute top-4 right-4 flex items-center gap-2">
+//             <motion.div
+//               className="w-2 h-2 rounded-full bg-primary-500"
+//               animate={{
+//                 scale: [1, 1.5, 1],
+//                 opacity: [1, 0.5, 1],
+//               }}
+//               transition={{
+//                 duration: 1,
+//                 repeat: Infinity,
+//                 ease: "easeInOut",
+//               }}
+//             />
+//             <span className="text-xs text-default-500">AI Processing</span>
+//           </div>
 
-          <div className="absolute left-4 top-4 space-y-2">
-            {dataPoints.map((_, i) => (
-              <motion.div
-                key={i}
-                className="flex items-center gap-2"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.2 }}
-              >
-                <Icon
-                  icon="mdi:chart-bell-curve"
-                  className="text-primary-500"
-                />
-                <span className="text-xs text-default-500">
-                  Analyzing data {i + 1}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+//           <div className="absolute left-4 top-4 space-y-2">
+//             {dataPoints.map((_, i) => (
+//               <motion.div
+//                 key={i}
+//                 className="flex items-center gap-2"
+//                 initial={{ opacity: 0, x: -20 }}
+//                 animate={{ opacity: 1, x: 0 }}
+//                 transition={{ delay: i * 0.2 }}
+//               >
+//                 <Icon
+//                   icon="mdi:chart-bell-curve"
+//                   className="text-primary-500"
+//                 />
+//                 <span className="text-xs text-default-500">
+//                   Analyzing data {i + 1}
+//                 </span>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
 
-        {Array.from({ length: 5 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{
-              opacity: 0,
-              scale: 0,
-              x: Math.random() * chartWidth,
-              y: Math.random() * chartHeight,
-            }}
-            animate={{
-              opacity: [0, 1, 0],
-              scale: [0.8, 1, 0.8],
-              y: "-=50",
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              delay: i * 0.4,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="bg-white/90 px-2 py-1 rounded-md shadow-lg text-xs text-default-700">
-              {["Σ", "μ", "σ", "Δ", "∫"][i]}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
+//         {Array.from({ length: 5 }).map((_, i) => (
+//           <motion.div
+//             key={i}
+//             className="absolute"
+//             initial={{
+//               opacity: 0,
+//               scale: 0,
+//               x: Math.random() * chartWidth,
+//               y: Math.random() * chartHeight,
+//             }}
+//             animate={{
+//               opacity: [0, 1, 0],
+//               scale: [0.8, 1, 0.8],
+//               y: "-=50",
+//             }}
+//             transition={{
+//               duration: 2,
+//               repeat: Infinity,
+//               delay: i * 0.4,
+//               ease: "easeInOut",
+//             }}
+//           >
+//             <div className="bg-white/90 px-2 py-1 rounded-md shadow-lg text-xs text-default-700">
+//               {["Σ", "μ", "σ", "Δ", "∫"][i]}
+//             </div>
+//           </motion.div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
 const styles = `
   @keyframes fadeIn {

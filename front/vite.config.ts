@@ -11,4 +11,8 @@ export default defineConfig({
     open: true,
     allowedHosts: ["onedata.ngrok.dev"],
   },
+  build: {
+    outDir: "docs",
+  },
+  base: "/od-proto/",
 });

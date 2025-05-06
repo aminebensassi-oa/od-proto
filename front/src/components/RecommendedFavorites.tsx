@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Card,
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  Button,
-  Tabs,
-  Tab,
-} from "@heroui/react";
+import { Card, Tabs, Tab } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import DataDrawer from "./DataDrawer";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +47,6 @@ function getLabel(item: any) {
     "No Name"
   );
 }
-const getDescription = (item: any) => item.Description || "No description.";
 
 export const RecommendedFavorites: React.FC = () => {
   const navigate = useNavigate();
@@ -144,7 +133,7 @@ export const RecommendedFavorites: React.FC = () => {
             No items to show.
           </div>
         )}
-        {shortcuts.map((item, idx) => {
+        {shortcuts.map((item) => {
           const type = item.Type || "default";
           const typeColor = getTypeColor(type);
           return (

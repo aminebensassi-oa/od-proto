@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-import {
-  Card,
-  Button,
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  Image,
-  Tooltip,
-  Divider,
-} from "@heroui/react";
+import { Button, Image, Tooltip, Divider } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { CustomCard } from "./custom/CustomCard";
 import DataDrawer from "./DataDrawer";
@@ -71,7 +60,6 @@ export const DataCard: React.FC<DataCardProps> = ({
   isFavorite = false,
   publishedDate,
   isRecommended,
-  recommendedLabel = "Recommended",
 }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 

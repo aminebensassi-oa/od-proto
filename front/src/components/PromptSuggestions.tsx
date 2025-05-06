@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { publishedAnalytics } from "../data/published-analytics";
-import { div } from "framer-motion/client";
 
 interface PromptSuggestionsProps {
   onSelect: (suggestion: string) => void;

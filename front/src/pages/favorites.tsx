@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Divider, Link, Pagination } from "@heroui/react";
+import { Button, Link, Pagination } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import DataCard from "../components/DataCard";
 import NavigationHeader from "../components/NavigationHeader";
@@ -23,7 +23,7 @@ const FavoritesPage: React.FC = () => {
   const [favorites, setFavorites] = useState<Record<string, boolean>>({});
   const [favoriteItems, setFavoriteItems] = useState<DataItem[]>([]);
   const [page, setPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(12);
+  const rowsPerPage = 12;
   const [pages, setPages] = useState(1);
 
   // Load favorites from localStorage

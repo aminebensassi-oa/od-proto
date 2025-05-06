@@ -7,16 +7,13 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Link,
-  Divider,
   DropdownSection,
   User,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
 import { useTheme } from "@heroui/use-theme";
 
 const NavigationHeader: React.FC = () => {
-  const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
 
   const handleLogout = () => {

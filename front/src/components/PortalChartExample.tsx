@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CustomChart from "./custom/CustomChart";
-import { div } from "framer-motion/client";
 
 const PortalChartExample: React.FC = () => {
   const [chartData, setChartData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isEmpty, setIsEmpty] = useState(false);
-  const [emptyMessage, setEmptyMessage] = useState("No data available.");
+  const isEmpty = false;
+  const emptyMessage = "No data available.";
 
   // Sample chart options for a Line chart
   const chartOptions = {

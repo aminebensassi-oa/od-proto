@@ -15,6 +15,7 @@ interface DataItem {
   };
   isNew?: boolean;
   analyticsCount?: number;
+  lastPublished?: string;
 }
 
 interface DataCardExampleProps {
@@ -32,7 +33,7 @@ const DataCardExample: React.FC<DataCardExampleProps> = ({
   const [filteredData, setFilteredData] = useState<DataItem[]>([]);
   const [fuse, setFuse] = useState<Fuse<any> | null>(null);
   const [page, setPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const rowsPerPage = 10;
   const [pages, setPages] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
 

@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { CustomCard } from "./CustomCard";
 import CustomChartState from "./CustomChartState";
 
 // Dynamically load required Highcharts modules
